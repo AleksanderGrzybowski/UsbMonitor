@@ -5,13 +5,12 @@
 #include <avr/interrupt.h>
 #include <avr/sleep.h>
 
+#include "HD44780.h"
 
 int main(void) {
 
-	DDRC = 0xff;
+	LCD_Initalize();
+	LCD_WriteText("Hello world");
 
-	while (1) {
-		PORTC ^= 0xff;
-		_delay_ms(1000);
-	}
+	while(1);
 }
