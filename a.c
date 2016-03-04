@@ -30,13 +30,13 @@ int main(void) {
 	init_adc();
 	LCD_Initalize();
 
-	char disp[10];
+	char disp[17];
 	int i = 0;
 
 	while(1) {
-		uint16_t first = read_adc(0);	
-		uint16_t second = read_adc(1);
-		sprintf(disp, "%d: %u - %u", i++, first, second);
+		float volts = ((1.1 * read_adc(0))/1024.0) * (1000.0 + 4700.0) / (1000.0);
+		uint16_t milliamps = (uint16_t) (((1.1 * read_adc(1))/1024.0) * 0.2 * 1000);
+		sprintf(disp, "%d: %.2f - %u", i++, volts, milliamps);
 		LCD_WriteText(disp);
 		_delay_ms(1000);
 		LCD_Clear();
