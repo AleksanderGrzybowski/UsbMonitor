@@ -58,7 +58,7 @@ typedef enum mode {AVERAGING, SAMPLING} mode;
 meas readings_to_meas(uint16_t adc_volts, uint16_t adc_milliamps) {
 	meas m;
 	m.volts = ((ADC_REF * adc_volts)/ADC_MAX_VALUE) * (VOLTAGE_DIV_VCC + VOLTAGE_DIV_GND) / (VOLTAGE_DIV_GND);
-	m.milliamps = (uint16_t) (((ADC_REF * adc_milliamps)/ADC_MAX_VALUE) * SHUNT_R * MILLIAMPS_IN_AMPS);
+	m.milliamps = (uint16_t) ((((ADC_REF * adc_milliamps)/ADC_MAX_VALUE)/SHUNT_R) * MILLIAMPS_IN_AMPS);
 	return m;
 }
 
