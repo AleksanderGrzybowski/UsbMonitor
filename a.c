@@ -14,8 +14,8 @@
 #define ADC_REF 1.1
 #define ADC_MAX_VALUE 1024.0
 
-#define ADC_CHANNEL_VCC 0
-#define ADC_CHANNEL_I 1
+#define ADC_CHANNEL_VCC 5
+#define ADC_CHANNEL_I 4
 
 #define SAMPLE_COUNT 300
 #define MILLIAMPS_IN_AMPS 1000
